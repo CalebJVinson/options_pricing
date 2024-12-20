@@ -4,4 +4,4 @@ This project was based on a final project where I used equations for the value/p
 # Derivation
 Using the stock process typically defined, we start with:
 
-$$dS = \muSdt + \sigmaSdz$$
+$$dS = \mu S dt + \sigma S dz$$
