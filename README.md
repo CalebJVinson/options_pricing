@@ -23,4 +23,4 @@ So, with that we can actually further our understanding of the process using a *
 
 Let *f* represent the price of a call, where *f* is a function of S and t.
 
-$$df = (\frac{\partial{f}}{\partial{S}} \mu S + \frac{\partial{f}}{\partial{t}} + \frac{1}{2}frac{\partial{f^2}}{\partial^2{S}})$$
+$$df = (\frac{\partial{f}}{\partial{S}} \mu S + \frac{\partial{f}}{\partial{t}} + \frac{1}{2}frac{\partial{f^2}}{\partial{^2 S}})$$
