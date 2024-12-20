@@ -5,3 +5,5 @@ This project was based on a final project where I used equations for the value/p
 Using the stock process typically defined, we start with:
 
 $$dS = \mu S dt + \sigma S dz$$
+
+where we have the \[\mu]\
