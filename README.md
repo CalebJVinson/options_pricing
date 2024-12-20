@@ -6,4 +6,4 @@ Using the stock process typically defined, we start with:
 
 $$dS = \mu S dt + \sigma S dz$$
 
-where we have the \[\mu]\
+where we have the \(\mu)\
