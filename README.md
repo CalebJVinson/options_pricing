@@ -6,4 +6,4 @@ Using the stock process typically defined, we start with:
 
 $$dS = \mu S dt + \sigma S dz$$
 
-where we have the $\mu S$ defined as the drift rate since we take S as the price and the parameter $\mu$ as the expected rate of return on a stock. We can easily see that without the uncertainty and variation term $\mu S dt$ we would get $S_T = S_0\exp{\mu T}$
+where we have the $\mu S$ defined as the drift rate since we take S as the price and the parameter $\mu$ as the expected rate of return on a stock. We can easily see that without the uncertainty and variation term $\mu S dt$ we would get $S_T = S_0\e^{\mu T}$
