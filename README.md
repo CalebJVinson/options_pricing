@@ -23,4 +23,4 @@ So, with that we can actually further our understanding of the process using a *
 
 Let *f* represent the price of a call, where *f* is a function of S and t.
 
-$$df = (\partial{f} \partial{S})$$
+$$df = (\partial{f}\partial{S})$$
