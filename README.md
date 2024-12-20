@@ -31,3 +31,11 @@ Using the discrete values we have $\Delta S = \mu S \Delta t + \sigma S \Delta z
 which we can use to reformat *f* as:
 
 $$\Delta f = \left( \frac{\partial{f}}{\partial{S}} \mu S + \frac{\partial{f}}{\partial{t}} + \frac{1}{2} \frac{\partial{f^2}}{\partial^2{S}} \right) \Delta t + \frac{\partial{f}}{\partial{S}} \sigma S \epsilon \sqrt{\Delta t}$$
+
+## Constructing a Portfolio to remove the Weiner process.
+
+We define the portfolio as $\Pi$ and use:
+
+$$\Pi = -f + \frac{\partial{f}}{\partial{S}}S$$
+
+- as our portfolio. In this form, we represent the *-f* as the short position of a derivative and  $\frac{\partial{f}}{\partial{S}}$ as a long position on shares of the underlying. If we then allow for discrete time steps we get
