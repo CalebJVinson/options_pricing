@@ -30,7 +30,7 @@ which we can use to reformat *f* as:
 
 $$\Delta f = \left( \frac{\partial{f}}{\partial{S}} \mu S + \frac{\partial{f}}{\partial{t}} + \frac{1}{2} \frac{\partial{f^2}}{\partial^2{S}} \right) \Delta t + \frac{\partial{f}}{\partial{S}} \sigma S \epsilon \sqrt{\Delta t}$$
 
-## Constructing a Portfolio to remove the Weiner process.
+## Constructing the option
 
 We define the portfolio as $\Pi$ and use:
 
