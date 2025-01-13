@@ -43,4 +43,25 @@ My primary error was in the conversion to a diffusion process of the values. Whe
 
 ## Crank-Nicolson Finite Difference
 
-In the first model I used, I had semi-trustworthy results, but not robust results. This is likely due to my usage of too large $\Delta t$ combined with the explicit finite difference method. The advantage of the Crank-Nicolson is its position as an average of the implicit and explicit finite difference method. The first issue in solving this problem is to shift the BSM model into a discretized form. The main way of doing this is to use a 1/2 fraction of the prior and current values with respect to price: $\frac{f_{i-1/2, j}}{\partial S} = 0.5 \cdot \left[\frac{\partial f_{i-1,j} + \partial f_{i,j}}{\partial S} + \frac{}{\partial S} \right]$
+In the first model I used, I had semi-trustworthy results, but not robust results. This is likely due to my usage of too large $\Delta t$ combined with the explicit finite difference method. The advantage of the Crank-Nicolson is its position as an average of the implicit and explicit finite difference method. The first issue in solving this problem is to shift the BSM model into a discretized form. The main way of doing this is to use a 1/2 fraction of the prior and current values with respect to price where our central approx for the first term is $ f'(x) = \frac{f(x+h) - f(x-h)}{2h} + O(h^2)$ and the standard approx for *f"(x)* which are approximated by:
+
+$$\frac{f_{i-1/2, j}}{\partial S} = 0.5 \cdot \left[\frac{\partial f_{i-1,j} + \partial f_{i,j}}{\partial S} + \frac{}{\partial S} \right]$$
+
+which is expanded as $= 0.5 \cdot \left[ \frac{\partial f_{i-1,j} + \partial f_{i,j}}{2 \delta S} + \frac{f_{i, j+1} - f+{i,j-1}}{2 \delta S} \right] + O( \delta S^2)$.
+
+Our second term is approximated by: 
+
+$$\frac{\partial^2 f_{i-1/2,j}}{\partial S^2} = 0.5 \cdot \left[ \frac{\partial^2 f_{i-1,j}}{\partial S^2} + \frac{\partial^2 f_{i,j}}{\partial S^2}\right]$$
+
+which is expanded as $= 0.5 \cdot \left[ \frac{f_{i-1,j+1} - 2 f_{i-1,j} + f_{i-1,j-1}}{\partial S^2} + \frac{f_{i,j+1} - 2 f_{i,j} + f_{i,j-1}}{\partial S^2}  \right] + O( \delta S^2)$.
+
+These values can be implemented into the BSM PDE and collected to get: $a_j f_{i, j-1} + (1-b_j) f_{i,j} + c_j f_{i, j+1}$
+
+where:
+$$ a_j = \frac{\delta t}{4} (\sigma ^2 j^2 - rj)$$
+
+$$ b_j = - \frac{\delta t}{2} (\sigma ^2 j^2 + r)$$
+
+$$ c_j = \frac{\delta t}{4} (\sigma ^2 j^2 + rj)$$
+
+The *i* and *j* values represent values on a lattice from values between today and expiration and the price into N levels. We can solve the for f at each of the nodes of the lattice by solving the set of simultaneous equations above. (This is typically done in a matrix formation). Using the stability conditions for this method, where the values need to be under normal conditions, there is stability into infinity from the ratio of the prior and current period. The $O(\delta t^2$ and  $O(\delta S^2)$ are the convergence rates of the Crank-Nicolson Method. For greeks, the Crank-Nicolson value seems to have occasional issues, and often has been supplemented by taking a small set of periods with the explicit method before switching to Crank-Nicolson. 
