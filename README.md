@@ -58,6 +58,7 @@ which is expanded as $= 0.5 \cdot \left[ \frac{f_{i-1,j+1} - 2 f_{i-1,j} + f_{i-
 These values can be implemented into the BSM PDE and collected to get: $a_j f_{i, j-1} + (1-b_j) f_{i,j} + c_j f_{i, j+1}$
 
 where:
+
 $$ a_j = \frac{\delta t}{4} (\sigma ^2 j^2 - rj)$$
 
 $$ b_j = - \frac{\delta t}{2} (\sigma ^2 j^2 + r)$$
