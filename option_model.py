@@ -252,15 +252,6 @@ class Options:
 
         Construct a binomial tree of stock prices.
 
-        Parameters:
-        - S0: Initial stock price
-        - up_factor: Factor by which stock price increases
-        - down_factor: Factor by which stock price decreases
-        - N: Number of time steps
-
-         Returns:
-        - A 2D list where each list represents stock prices at a time step from 0 to N
-
         Construcs
         price_tree = [[self.S]]
         for i in range(1, self.N + 1):
@@ -268,8 +259,6 @@ class Options:
             price_tree.append(prices)
         return price_tree
     """
-
-    # The binomial option pricing model is a risk-neutral method for valuing path-dependent options
 
 
     def binomial_american(self):
